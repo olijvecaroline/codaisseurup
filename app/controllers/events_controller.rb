@@ -19,7 +19,7 @@ end
   end
 
   def create
-    @event = current_user.events.build(room_params)
+    @event = current_user.events.build(event_params)
 
     if @event.save
       redirect_to @event, notice: "Event successfully created"
@@ -32,8 +32,8 @@ end
   end
 
   def update
-    if @room.update(room_params)
-      redirect_to @room, notice: "Room successfully updated"
+    if @event.update(event_params)
+      redirect_to @event, notice: "event successfully updated"
     else
       render :edit
     end
