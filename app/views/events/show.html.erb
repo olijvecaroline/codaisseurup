@@ -1,0 +1,25 @@
+
+<!--rails g model Event name:string description:text location:string price:decimal capacity:integer includes_food:boolean includes_drinks:boolean starts_at:datetime ends_at:datetime active:boolean user:references-->
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= @event.name %></div>
+
+  <div class="panel-body">
+
+    <p>Description: <%= @event.description %></p>
+    <p>Location: <%= @event.location %></p>
+
+    <!-- Main Info -->
+    <h4>Main Info</h4>
+    <p>Price: <%= @event.price%></p>
+    <p>Capacity: <%= @event.capacity %></p>
+    <p><%= @event.includes_food ? "Free food" : "No food" %></p>
+    <p><%= @event.includes_drinks ? "Free drinks!" : "No drinks" %></p>
+
+
+
+  </div>
+
+</div>
+
+<%= link_to "Back", events_path, class: "btn btn-default" %>
