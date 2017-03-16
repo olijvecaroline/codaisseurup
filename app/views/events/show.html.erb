@@ -16,7 +16,15 @@
     <p><%= @event.includes_food ? "Free food" : "No food" %></p>
     <p><%= @event.includes_drinks ? "Free drinks!" : "No drinks" %></p>
 
-
+    <!-- Photos -->
+    <h4>Photos</h4>
+    <% @event.photos.each do |photo| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= image_tag photo.image.thumbnail %>
+      </div>
+    </div>
+    <% end %>
 
   </div>
 

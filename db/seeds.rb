@@ -1,30 +1,49 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-Category.destroy_all
-Photo.delete_all
+#Photo.delete_all
+
+Category.delete_all
 Event.delete_all
-User.destroy_all
+Profile.delete_all
+User.delete_all
+
+# Users
+miriam = User.create!(email: "miriam@codaisseurup.com", password: "abcd1234")
+wouter = User.create!(email: "wouter@codaisseurup.com", password: "abcd1234")
+mat = User.create!(email: "mat@codaisseurup.com", password: "abcd1234")
+
+puts "#{User.all.size} users create!d"
+
+# Photos
+photo1 = Photo.create!(remote_image_url:" https://res.cloudinary.com/olijve/image/upload/t_media_lib_thumb/v1489663079/sample.jpg")
 
 
-miria = User.create(email: "miriam@codaisseurbnb.com", password: "abcd1234")
-bernie = User.create(email: "bernie@codaisseurbnb.com", password: "abcd123")
-barry = User.create(email: "barry@codaisseurbnb.com", password: "abcd12")
 
-zappa = Category.create(name:"zappa")
-blues = Category.create(name:"reno fernis")
-barok = Category.create(name:"bach")
-romantiek = Category.create(name:"Haydn")
-amerikaans = Category.create(name:"Gershwin")
+# Events
 
-event1 = Event.create(name: "Zappa in A", description: "Zappa will be visiting the netherlands", location: "twin peaks", price: 100, capacity: 600, includes_food: true, includes_drinks: true, starts_at:(12.15), active: true, user: miria, categories: [zappa, blues])
-event2 = Event.create(name: "Zappa in DH", description: "Zappa will be visiting The haqe", location: "log-house", price: 100, capacity: 600, includes_food: true, includes_drinks: true, starts_at:(12.15), active: true, user: miria, categories: [romantiek])
-event3 = Event.create(name: "Zappa in A", description: "Zappa will be visiting Volendam", location: "downerpark", price: 100, capacity: 600, includes_food: true, includes_drinks: true, starts_at:(12.15), active: true, user: barny, categories: [zappa, ])
+event = Event.create!(
+  name: "Monthly Yoga Weekend",
+  description: "Let's come together and practice some asanas together in the woods!",
+  location: "Amsterdam",
+  includes_food: false,
+  includes_drinks: true,
+  price: 10.00,
+  starts_at: 10.days.from_now,
+  ends_at: 12.days.from_now,
+  capacity: 100,
+  active: true,
+  user: miriam,
+  photos: [photo1]
+)
 
-photo1 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007276/28dab8dd748210a53c77bb284558a5ce5905ca6a_git9a9.jpg")
-photo2 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007276/99ca8b27a84b46c373803df268167d15c3488e99_tvrfql.jpg")
-photo3 = Photo.create(remote_image_url: "http://res.cloudinary.com/dnwkjak4p/image/upload/v1476007282/20161005-q3895_hjoc8t.png")
+
+# Categories
+Category.create!([
+  { name: "Movements" },
+  { name: "Outdoors & Adventure" },
+  { name: "Tech" },
+  { name: "Family" },
+  { name: "Health & Wellness" },
+  { name: "Sports & Fitness" },
+  { name: "Learning" },
+  { name: "Photography" },
+  { name: "Food & Drink" },
+])

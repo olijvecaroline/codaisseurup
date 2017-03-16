@@ -1,4 +1,4 @@
-<%= form_for @event do |f| %>
+<%= form_for @event, html: { multipart: true } do |f| %>
   <div class="form-group">
     <label>Capacity</label>
     <%= f.select :capacity, ["<100", "100-200", ">200"], id: "capacity", prompt: "Select event capacity", class: "form-control" %>
@@ -26,12 +26,25 @@
     </div>
   </div>
 
+  <label>Photos</label>
+
+<div class="form-group">
+  <span class="btn btn-default">
+    Upload Photos
+    <%= file_field_tag "images[]", type: :file, multiple: true %>
+  </span>
+</div>
+
+<div id="photos">
+  <%= render 'photos/list' %>
+</div>
+
   <label>Publish this event?</label>
 
   <div class="form-group">
     <%= f.check_box :active %> Active
   </div>
-  
+
   <div>
   <label>Categories</label>
 
