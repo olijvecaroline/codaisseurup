@@ -11,7 +11,7 @@ class EventsController < ApplicationController
 
   def show
   @categories = @event.categories
-  @photos = @events.photos
+  @photos = @event.photos
 end
 
 
@@ -66,7 +66,8 @@ def image_params
 end
 
     def event_params
-      params.require(:event).permit(:name, :description, :location, :price, :capacity, :includes_food, :includes_drinks, :starts_at, :ends_at, :active, :user, category_ids: [])
+      params.require(:event).permit(:name, :description, :location, :price, :capacity, :includes_food, :includes_drinks, :starts_at, :ends_at, :active, :user, :photos, category_ids: []
+      )
     end
 
 

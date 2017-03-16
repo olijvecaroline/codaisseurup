@@ -6,10 +6,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+    <style type="text/css">
+      body { text-align: center; }
+   </style>
   </head>
 
-  <body >
+  <body style="">
 <%= render 'shared/navbar' %>
 
   <p class="notice"><%= notice %></p>

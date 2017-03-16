@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  attr_accessor :first_name, :last_name
+
   has_many :events, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
