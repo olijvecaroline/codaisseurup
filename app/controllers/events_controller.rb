@@ -11,6 +11,7 @@ class EventsController < ApplicationController
 
   def show
   @categories = @event.categories
+  @photos = @events.photos
 end
 
 
@@ -22,17 +23,32 @@ end
     @event = current_user.events.build(event_params)
 
     if @event.save
+      image_params.each do |image|
+      @event.photos.create(image: image)
+    end
       redirect_to @event, notice: "Event successfully created"
     else
       render :new
     end
   end
 
-  def edit
+
+
+    def edit
+  if current_user.id == @event.user.id
+    @photos = @event.photos
+  else
+    redirect_to root_path, notice: "You don't have permission."
   end
+end
+
+
 
   def update
     if @event.update(event_params)
+      image_params.each do |image|
+        @event.photos.create(image: immage)
+      end
       redirect_to @event, notice: "event successfully updated"
     else
       render :edit
@@ -43,6 +59,11 @@ end
     def set_event
       @event = Event.find(params[:id])
     end
+    private
+
+def image_params
+  params[:images].present? ? params.require(:images) : []
+end
 
     def event_params
       params.require(:event).permit(:name, :description, :location, :price, :capacity, :includes_food, :includes_drinks, :starts_at, :ends_at, :active, :user, category_ids: [])
