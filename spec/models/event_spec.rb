@@ -1,5 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+describe "association with user" do
+
+  let!(:user) { create :user }
+
+  it "belongs to a user" do
+    
+    event = user.events.new()
+
+    expect(event.user).to eq(user)
+  end
+
+end
 end

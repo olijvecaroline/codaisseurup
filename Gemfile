@@ -4,6 +4,9 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+source 'https://rubygems.org'
+
+ruby '2.4.0'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -56,6 +59,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
   gem 'factory_girl_rails', '4.7.0'
   gem 'faker', '1.6.6'
+  gem 'capybara', '~> 2.9', '>= 2.9.1'
 end
 
 group :test do
@@ -64,3 +68,4 @@ end
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise', '~> 4.2'
+gem ruby 2.4.0

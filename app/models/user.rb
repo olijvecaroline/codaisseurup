@@ -15,4 +15,5 @@ class User < ApplicationRecord
            profile.full_name
          end
 
+
 end

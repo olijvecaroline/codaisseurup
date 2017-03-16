@@ -16,4 +16,4 @@ barok = Category.create(name:"bach")
 romantiek = Category.create(name:"Haydn")
 amerikaans = Category.create(name:"Gershwin")
 
-event = Event.create(name: "Zappa in A", description: "Zappa will be visiting the netherlands", location: "Melkweg", price: 100, capacity: 600, includes_food: true, includes_drinks: true, starts_at:(12.15), active: true, user: miria, categories: [zappa, blues])
+event = Event.create(name: "Zappa in A", description: "Zappa will be visiting the netherlands", location: "twin peaks", price: 100, capacity: 600, includes_food: true, includes_drinks: true, starts_at:(12.15), active: true, user: miria, categories: [zappa, blues])

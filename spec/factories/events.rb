@@ -10,7 +10,7 @@ FactoryGirl.define do
     starts_at           { Faker::Address.city }
     active              true
     user                { build(:user) }
-    categories          { build (:category)}
+    #category            { build (:category)}
 
     trait :active do
       active true
