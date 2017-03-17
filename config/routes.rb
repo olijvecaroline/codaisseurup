@@ -8,7 +8,8 @@ Rails.application.routes.draw do
 resources :users, only: [:show]
 resources :user_signed_in
 resources :profiles, only: [:new, :edit, :create, :update]
-resources :events
+resources :events do resources :bookings, only: [:create] end
 resources :categories
 resources :photos
+
 end

@@ -1,8 +1,9 @@
 #Photo.delete_all
 
 Photo.delete_all
+Booking.delete_all
 Category.delete_all
-Event.delete_all
+Event.destroy_all
 Profile.delete_all
 User.delete_all
 
